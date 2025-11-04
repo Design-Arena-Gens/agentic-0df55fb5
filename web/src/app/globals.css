@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --background: #020409;
+  --foreground: #f2f6fb;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  min-height: 100vh;
+  background:
+      radial-gradient(
+        120% 120% at 15% 15%,
+        rgba(99, 91, 255, 0.22) 0%,
+        rgba(6, 18, 41, 0.12) 38%,
+        rgba(2, 4, 9, 0.92) 85%,
+        rgba(2, 4, 9, 1) 100%
+      ),
+    #020409;
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  position: relative;
+  overscroll-behavior: none;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+body::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='240' height='240' viewBox='0 0 240 240' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.6'%3E%3Cpath d='M118 0H122V16H118z' fill='%23FFFFFF' fill-opacity='0.08'/%3E%3Cpath d='M118 224H122V240H118z' fill='%23FFFFFF' fill-opacity='0.08'/%3E%3Cpath d='M0 118H16V122H0z' fill='%23FFFFFF' fill-opacity='0.08'/%3E%3Cpath d='M224 118H240V122H224z' fill='%23FFFFFF' fill-opacity='0.08'/%3E%3Ccircle cx='120' cy='120' r='1.5' fill='%23ffffff' fill-opacity='0.35'/%3E%3C/g%3E%3C/svg%3E");
+  mix-blend-mode: screen;
+  opacity: 0.6;
+}
+
+body::after {
+  background: radial-gradient(ellipse at 30% 20%, rgba(96, 165, 250, 0.18), transparent 55%),
+    radial-gradient(ellipse at 80% 10%, rgba(125, 211, 252, 0.18), transparent 60%),
+    radial-gradient(ellipse at 10% 80%, rgba(99, 91, 255, 0.14), transparent 55%);
+  filter: blur(40px);
+  opacity: 0.7;
+}
